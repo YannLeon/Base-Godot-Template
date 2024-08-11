@@ -1,0 +1,11 @@
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://dqa3o65jeiq35"]
+
+[ext_resource type="FontFile" uid="uid://beycqccbkgmsc" path="res://assets/fonts/classics/Tanklager-Original.ttf" id="1_bf6jq"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nd6bw"]
+bg_color = Color(0.133333, 0.137255, 0.137255, 1)
+border_color = Color(0.941176, 0.964706, 0.941176, 1)
+
+[resource]
+default_font = ExtResource("1_bf6jq")
+Panel/styles/panel = SubResource("StyleBoxFlat_nd6bw")

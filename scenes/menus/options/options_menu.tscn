@@ -1,0 +1,108 @@
+[gd_scene load_steps=2 format=3 uid="uid://cmjyjjr580xuw"]
+
+[ext_resource type="Script" path="res://scenes/menus/options/options_menu.gd" id="1_ee7gx"]
+
+[node name="OptionsMenu" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ee7gx")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="PanelContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Panel"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Panel/MarginContainer"]
+layout_mode = 2
+
+[node name="OptionsLabel" type="Label" parent="MarginContainer/Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "OPTIONS"
+horizontal_alignment = 1
+
+[node name="MainContainer" type="VBoxContainer" parent="MarginContainer/Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="MainLabel" type="Label" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/MainContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 15
+text = "Main Volume"
+
+[node name="MainHSlider" type="HSlider" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/MainContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+max_value = 1.0
+step = 0.01
+
+[node name="MusicContainer" type="VBoxContainer" parent="MarginContainer/Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="MusicLabel" type="Label" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/MusicContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 15
+text = "Music Volume"
+
+[node name="MusicHSlider" type="HSlider" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/MusicContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+max_value = 1.0
+step = 0.01
+
+[node name="SfxContainer" type="VBoxContainer" parent="MarginContainer/Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="SfxLabel" type="Label" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/SfxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 15
+text = "SFX Volume"
+
+[node name="SfxHSlider" type="HSlider" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/SfxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+max_value = 1.0
+step = 0.01
+
+[node name="FullScreenContainer" type="HBoxContainer" parent="MarginContainer/Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="FullScreenLabel" type="Label" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/FullScreenContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 15
+text = "Fullscreen
+"
+
+[node name="FullScreenToggle" type="CheckButton" parent="MarginContainer/Panel/MarginContainer/VBoxContainer/FullScreenContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="BackButton" type="Button" parent="MarginContainer/Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "BACK"
+
+[connection signal="value_changed" from="MarginContainer/Panel/MarginContainer/VBoxContainer/MainContainer/MainHSlider" to="." method="_on_main_h_slider_value_changed"]
+[connection signal="value_changed" from="MarginContainer/Panel/MarginContainer/VBoxContainer/MusicContainer/MusicHSlider" to="." method="_on_musci_h_slider_value_changed"]
+[connection signal="value_changed" from="MarginContainer/Panel/MarginContainer/VBoxContainer/SfxContainer/SfxHSlider" to="." method="_on_sfx_h_slider_value_changed"]
+[connection signal="toggled" from="MarginContainer/Panel/MarginContainer/VBoxContainer/FullScreenContainer/FullScreenToggle" to="." method="_on_full_screen_toggle_toggled"]
+[connection signal="pressed" from="MarginContainer/Panel/MarginContainer/VBoxContainer/BackButton" to="." method="_on_back_button_pressed"]
